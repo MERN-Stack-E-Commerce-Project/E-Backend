@@ -18,7 +18,9 @@ const categoryRoutes=require("./routes/category");
 const productRoutes=require("./routes/product");
 const cartRoutes=require("./routes/cart"); 
 const initialData=require("./routes/admin/initialData.js");
-
+const pageData=require("./routes/admin/page")
+const addressRoutes=require("./routes/address");
+const orderRoutes=require("./routes/order")
 app.use(cors());
 app.use(express.json());
 app.use("/public",express.static(path.join(__dirname,"uploads")));
@@ -44,6 +46,9 @@ app.use("/api",categoryRoutes);
 app.use("/api",productRoutes);
 app.use("/api",cartRoutes);
 app.use("/api",initialData);
+app.use("/api",pageData);
+app.use("/api",addressRoutes);
+app.use("/api",orderRoutes);
 
 app.listen(port,()=>{
   console.log(`server is running ${port}`);
